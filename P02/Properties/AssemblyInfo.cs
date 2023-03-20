@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Obecné informace o sestavení se řídí přes následující 
 // sadu atributů. Změnou hodnot těchto atributů se upraví informace
 // přidružené k sestavení.
-[assembly: AssemblyTitle("P01")]
+[assembly: AssemblyTitle("P02")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("P01")]
+[assembly: AssemblyProduct("P02")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Následující GUID se používá pro ID knihovny typů, pokud je tento projekt vystavený pro COM.
-[assembly: Guid("6fc45394-d0f0-4b2d-8daa-e58a8fb9b54e")]
+[assembly: Guid("4fcacef7-5bc1-4b6a-81a0-e3e49897d17c")]
 
 // Informace o verzi sestavení se skládá z těchto čtyř hodnot:
 //
