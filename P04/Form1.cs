@@ -21,34 +21,40 @@ namespace P04
         {
             try
             {
-                    int a = Convert.ToInt32(textBox1.Text);
-                    int n = Convert.ToInt32(textBox2.Text);
+                double a = Convert.ToInt32(textBox1.Text);
+                int n = Convert.ToInt32(textBox2.Text);
 
-                    int cisloA = a;
+                double cisloA = a;
 
-                    if (n < 0)
+                if (n < 0)
+                {
+                    n = Math.Abs(n);
+                    for (int i = 1; i < n; i++)
                     {
-                        n = Math.Abs(n);
-                        for (int i = 1; i < n; i++)
-                        {
-                            a *= cisloA;
-                        }
+                        a *= cisloA;
+                    }
+                    if (a != double.PositiveInfinity) { 
                         MessageBox.Show($"Cislo {cisloA} na {n} je 1/{a}");
                     }
                     else
                     {
-                    
-                        for (int i = 1; i < n; i++)
-                        {
-                            try { 
-                                 a *= checked(cisloA);
-                            } catch (OverflowException ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
-                        }
+                        MessageBox.Show("Číslo je nekonečné");
                     }
-                    MessageBox.Show($"Cislo {cisloA} na {n} je {a}");
+                }
+                else
+                {
+                    for (int i = 1; i < n; i++)
+                    {
+                        a *= cisloA;
+                    }
+                    if (a != double.PositiveInfinity) { 
+                        MessageBox.Show($"Cislo {cisloA} na {n} je {a}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Číslo je nekonečné");
+                    }
+                }    
             }
             catch (OverflowException ex)
             {
