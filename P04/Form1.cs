@@ -21,45 +21,34 @@ namespace P04
         {
             try
             {
-                int a = Convert.ToInt32(textBox1.Text);
-                int n = Convert.ToInt32(textBox2.Text);
+                    int a = Convert.ToInt32(textBox1.Text);
+                    int n = Convert.ToInt32(textBox2.Text);
 
-                int cisloA = a;
+                    int cisloA = a;
 
-                if (n < 0)
-                {
-                    MessageBox.Show($"Cislo {cisloA} na {n}");
-                    n = Math.Abs(n);
-
-                    for (int i = 1; i < n; i++)
+                    if (n < 0)
                     {
-                        try { 
-                            a *= checked(cisloA);
-                        }
-                        catch (OverflowException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                    MessageBox.Show($"je 1/{a}");
-                }
-                else { 
-
-                    for (int i = 1; i < n; i++)
-                    {
-                        try
+                        n = Math.Abs(n);
+                        for (int i = 1; i < n; i++)
                         {
                             a *= cisloA;
                         }
-                        catch (OverflowException ex)
+                        MessageBox.Show($"Cislo {cisloA} na {n} je 1/{a}");
+                    }
+                    else
+                    {
+                    
+                        for (int i = 1; i < n; i++)
                         {
-                            MessageBox.Show(ex.Message);
+                            try { 
+                                 a *= checked(cisloA);
+                            } catch (OverflowException ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                         }
                     }
                     MessageBox.Show($"Cislo {cisloA} na {n} je {a}");
-                }
-                
-
             }
             catch (OverflowException ex)
             {
