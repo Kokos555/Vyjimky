@@ -21,7 +21,7 @@ namespace P04
         {
             try
             {
-                double a = Convert.ToInt32(textBox1.Text);
+                double a = Convert.ToDouble(textBox1.Text);
                 int n = Convert.ToInt32(textBox2.Text);
 
                 double cisloA = a;
@@ -33,7 +33,8 @@ namespace P04
                     {
                         a *= cisloA;
                     }
-                    if (a != double.PositiveInfinity) { 
+                    if (a != double.PositiveInfinity)
+                    {
                         MessageBox.Show($"Cislo {cisloA} na {n} je 1/{a}");
                     }
                     else
@@ -47,22 +48,25 @@ namespace P04
                     {
                         a *= cisloA;
                     }
-                    if (a != double.PositiveInfinity) { 
+                    if (a != double.PositiveInfinity)
+                    {
                         MessageBox.Show($"Cislo {cisloA} na {n} je {a}");
                     }
                     else
                     {
                         MessageBox.Show("Číslo je nekonečné");
                     }
-                }    
+                }
             }
-            catch (OverflowException ex)
+            catch (OverflowException)
             {
-                MessageBox.Show(ex.Message);
-            }catch (FormatException ex)
-            {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Došlo k přetečení datového typu double. Zadejte menší hodnoty.");
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Chybný formát vstupních dat. Zadejte platné hodnoty.");
+            }
+
         }
     }
 }
