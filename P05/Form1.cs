@@ -29,15 +29,8 @@ namespace P05
                 string mesic = datum.Substring(2, 2);
                 string den = datum.Substring(4, 2);
                 datum = datum.Remove(6, 1);
-            long cislo = 0;
-            try
-            {
+            long cislo;
                 cislo = Int64.Parse(datum);
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show(String.Format($"{ex}"));
-            }
                 datum_z_rc = DateTime.Now;
             try
             {
