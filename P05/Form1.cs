@@ -29,7 +29,15 @@ namespace P05
                 string mesic = datum.Substring(2, 2);
                 string den = datum.Substring(4, 2);
                 datum = datum.Remove(6, 1);
-                long cislo = Int64.Parse(datum);
+            long cislo = 0;
+            try
+            {
+                cislo = Int64.Parse(datum);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(String.Format($"{ex}"));
+            }
                 datum_z_rc = DateTime.Now;
             try
             {
@@ -49,7 +57,13 @@ namespace P05
                 }
                 int pocetdni = DateTime.DaysInMonth(rokc, mesc);
                 if (denc < 1 || denc > pocetdni) throw new FormatException();
-                datum_z_rc = new DateTime(rokc + 2000, mesc, denc);
+                if (rokc < 1900) { 
+                    datum_z_rc = new DateTime(rokc + 1900, mesc, denc);
+                }
+                else
+                {
+                    datum_z_rc = new DateTime(rokc + 2000, mesc, denc);
+                }
                 return true;
             }catch (FormatException ex)
             {
@@ -63,7 +77,7 @@ namespace P05
             string rc = textBox1.Text;
             if (JeRodneCislo(rc, out DateTime datum_z_rc, out string zprava))
             {
-                MessageBox.Show(string.Format($"Rodné číslo je {rc}, a převedení na datum je to {datum_z_rc:d}"));
+                MessageBox.Show(string.Format($"Rodné číslo je {rc} a je platné, převedení na datum je to {datum_z_rc:d}"));
             }
         }
     }
